@@ -8,7 +8,7 @@ module.exports = {
   AUTO_STATUS_SEEN: true,
   READ_MESSAGE: true, 
   RESTRICTED_NUMBER: '94775587705@s.whatsapp.net', 
-  STATUS_TRIGGERS: 'send,Send,Seve,Ewpm,ewpn,Dapan,dapan,oni,Oni,save,Save,ewanna,Ewanna,ewam,Ewam,sv,Sv,දාන්න,එවම්න', // මෙතන තියෙන්නෙ status send download massage ඔවා වෙනස් කර ගනිම් 😒
+  STATUS_TRIGGERS: 'send,dhn,danna,ewm,ewn,denna,meka,semd,one,onee,onii,ewanna,ewnnda,ewapSend,Seve,Ewpm,ewpn,Dapan,dapan,oni,Oni,save,Save,ewanna,Ewanna,ewam,Ewam,sv,Sv,දාන්න,එවම්න', // මෙතන තියෙන්නෙ status send download massage ඔවා වෙනස් කර ගනිම් 😒
   GROUP_LINK: 'https://chat.whatsapp.com/JnenfkxOzH6JefRmeaSo0M',
 
   MAX_RETRIES: 3,
