@@ -1,0 +1,31 @@
+{
+  "name": "whatsapp-bot",
+  "version": "1.0.0",
+  "description": "Advanced WhatsApp Bot with PostgreSQL integration",
+  "main": "dexter.js",
+  "scripts": {
+    "start": "node dexter.js",
+    "dev": "nodemon dexter.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "@whiskeysockets/baileys": "^6.7.18",
+    "express": "^4.19.2",
+    "pg": "^8.12.0",
+    "megajs": "^1.1.0",
+    "pino": "^8.21.0",
+    "dotenv": "^16.4.5",
+    "perf_hooks": "^0.0.1",
+    "axios":"^1.2.5",
+    "qrcode": "^1.5.4",
+    "form-data": "^4.0.2"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.4"
+  },
+  "engines": {
+    "node": ">=18.x"
+  },
+  "author": "",
+  "license": "ISC"
+}

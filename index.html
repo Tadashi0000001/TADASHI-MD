@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ᴛᴀᴅᴀꜱʜɪ WhatsApp Bot Dashboard</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-900 text-white font-sans">
+  <div class="container mx-auto p-6">
+    <header class="text-center mb-8">
+      <h1 class="text-4xl font-bold text-blue-400">TADASHI  WhatsApp Bot</h1>
+      <p class="text-lg text-gray-400 mt-2">Manage your bot with ease</p>
+    </header>
+
+    <main class="grid grid-cols-1 md:grid-cols-3 gap-6">
+      <!-- Status Card -->
+      <div class="bg-gray-800 p-6 rounded-lg shadow-lg">
+        <h2 class="text-2xl font-semibold mb-4">Bot Status</h2>
+        <button id="statusBtn" class="bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded w-full">
+          Check Status
+        </button>
+        <pre id="statusOutput" class="mt-4 bg-gray-900 p-4 rounded text-sm text-gray-300 overflow-auto h-64"></pre>
+      </div>
+
+      <!-- Reload Card -->
+      <div class="bg-gray-800 p-6 rounded-lg shadow-lg">
+        <h2 class="text-2xl font-semibold mb-4">Reload reply.json</h2>
+        <button id="reloadBtn" class="bg-green-500 hover:bg-green-600 text-white font-bold py-2 px-4 rounded w-full">
+          Reload
+        </button>
+        <pre id="reloadOutput" class="mt-4 bg-gray-900 p-4 rounded text-sm text-gray-300 overflow-auto h-64"></pre>
+      </div>
+
+      <!-- Delete Card -->
+      <div class="bg-gray-800 p-6 rounded-lg shadow-lg">
+        <h2 class="text-2xl font-semibold mb-4">Manage Deleted Messages</h2>
+        <button id="deleteBtn" class="bg-yellow-500 hover:bg-yellow-600 text-white font-bold py-2 px-4 rounded w-full mb-2">
+          View Deleted
+        </button>
+        <button id="clearBtn" class="bg-red-500 hover:bg-red-600 text-white font-bold py-2 px-4 rounded w-full">
+          Clear Database
+        </button>
+        <pre id="deleteOutput" class="mt-4 bg-gray-900 p-4 rounded text-sm text-gray-300 overflow-auto h-64"></pre>
+      </div>
+    </main>
+
+    <footer class="text-center mt-8 text-gray-500">
+      <p>&copy; 2025 Tadashi Bot. Powered by Render.</p>
+    </footer>
+  </div>
+
+  <script>
+    async function fetchApi(endpoint) {
+      try {
+        const response = await fetch(endpoint);
+        const data = await response.json();
+        return JSON.stringify(data, null, 2);
+      } catch (err) {
+        return `Error: ${err.message}`;
+      }
+    }
+
+    document.getElementById('statusBtn').addEventListener('click', async () => {
+      const output = document.getElementById('statusOutput');
+      output.textContent = 'Fetching status...';
+      output.textContent = await fetchApi('/status');
+    });
+
+    document.getElementById('reloadBtn').addEventListener('click', async () => {
+      const output = document.getElementById('reloadOutput');
+      output.textContent = 'Reloading reply.json...';
+      output.textContent = await fetchApi('/reload');
+    });
+
+    document.getElementById('deleteBtn').addEventListener('click', async () => {
+      const output = document.getElementById('deleteOutput');
+      output.textContent = 'Fetching deleted messages...';
+      output.textContent = await fetchApi('/delete');
+    });
+
+    document.getElementById('clearBtn').addEventListener('click', async () => {
+      const output = document.getElementById('deleteOutput');
+      output.textContent = 'Clearing database...';
+      output.textContent = await fetchApi('/delete?clear=true');
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,27 @@
+{
+  "rules": [
+    {
+      "trigger": "dexter",
+      "pattern": "dexter.*",
+      "response": [
+        { "type": "text", "content": "*YES IAM REAL TADASHI </> YOU ${pushname} Your number ${userid}*" },
+        { "type": "text", "content": "*How are you ❔*", "delay": 2000 },
+        { "type": "image", "url": "${senderdpurl}", "caption": "*Tnx ${pushname} Contact me 🫶❤‍🩹*" }
+      ]
+    },
+    {
+      "trigger": "🎹🎹",
+      "pattern": "🎹{2}",
+      "response": [
+        { "type": "video", "url": "https://files.catbox.moe/sample-video.mp4", "caption": "Check this video!" }
+      ]
+    },
+    {
+      "trigger": "King",
+      "pattern": "king.*",
+      "response": [
+        { "type": "voice", "url": "https://files.catbox.moe/fqbhkt.mp3" }
+      ]
+    }
+  ]
+}
